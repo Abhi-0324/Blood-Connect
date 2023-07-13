@@ -31,7 +31,7 @@ app.use("/api/v1/admin", require("./routes/adminRoutes"));
 
 //rest api
 app.use('*', function(req, res) {
-  res.sendFile(path.join(process.cwd(), 'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 //PORT
