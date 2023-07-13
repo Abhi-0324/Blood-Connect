@@ -5,11 +5,15 @@ const morgan = require("morgan");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const path = require("path");
+import { fileURLToPath } from 'url';
 //dot config
 dotenv.config();
 
 //mongodb connection
 connectDB();
+
+const __filename=fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //rest object
 const app = express();
@@ -27,18 +31,18 @@ app.use("/api/v1/inventory", require("./routes/inventoryRoutes"));
 app.use("/api/v1/analytics", require("./routes/analyticsRoutes"));
 app.use("/api/v1/admin", require("./routes/adminRoutes"));
 
-//port
-const PORT = process.env.PORT || 8080;
-//STATIC_FOLDER
-app.use(express.static(path.join(__dirname,'./client/build')));
-//STATIC_ROUTES
-app.get("*",function(_req,res){
-  res.sendFile(path.join(__dirname,'./client/build/index.html'));
+//rest api
+app.use('*',function(req,res){
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 })
-//listen
+
+//PORT
+const PORT = process.env.PORT || 8080;
+
+//run listen
 app.listen(PORT, () => {
   console.log(
-    `Node Server Running In ${process.env.DEV_MODE} ModeOn Port ${process.env.PORT}`
-      .bgBlue.white
+    `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
+      .white
   );
 });
