@@ -5,15 +5,13 @@ const morgan = require("morgan");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const path = require("path");
-const { fileURLToPath } from 'url';
+
 //dot config
 dotenv.config();
 
 //mongodb connection
 connectDB();
 
-const __filename=fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 //rest object
 const app = express();
