@@ -4,10 +4,11 @@
   "description": "mern blood bank app",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
     "client": "npm start --prefix ./client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm start\" \"npm run client\""
   },
   "author": "techinfoyt",
   "license": "ISC",
