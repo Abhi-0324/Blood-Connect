@@ -20,6 +20,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
+app.use(express.static(path.join(__dirname,'./client/build')));
+
 
 //routes
 // 1 test route
@@ -31,7 +33,7 @@ app.use("/api/v1/admin", require("./routes/adminRoutes"));
 
 //rest api
 app.use('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
 //PORT
