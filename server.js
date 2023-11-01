@@ -12,13 +12,19 @@ dotenv.config();
 //mongodb connection
 connectDB();
 
+const corsOptions = {
+  origin: "https://victorious-waistcoat-lamb.cyclic.app",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
 
 //rest object
 const app = express();
 
 //middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname,'./client/build')));
 
