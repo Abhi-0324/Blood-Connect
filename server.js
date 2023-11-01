@@ -13,8 +13,8 @@ dotenv.config();
 connectDB();
 
 const corsOptions = {
-  origin: "https://victorious-waistcoat-lamb.cyclic.app",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  origin: ["https://victorious-waistcoat-lamb.cyclic.app"],
+  methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
   credentials: true,
   optionsSuccessStatus: 204,
 };
