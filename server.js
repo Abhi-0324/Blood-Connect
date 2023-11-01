@@ -1,4 +1,4 @@
-const express = require("express");
+  const express = require("express");
 const dotenv = require("dotenv");
 const colors = require("colors");
 const morgan = require("morgan");
@@ -13,7 +13,7 @@ dotenv.config();
 connectDB();
 
 const corsOptions = {
-  origin: ["https://victorious-waistcoat-lamb.cyclic.app"],
+  origin: ["https://victorious-waistcoat-lamb.cyclic.app/"],
   methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
   credentials: true,
   optionsSuccessStatus: 204,
